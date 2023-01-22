@@ -96,6 +96,12 @@ int main(int argc, char **argv, char **envp)
 	};
 	int test_count = sizeof(tests)/sizeof(tests[0]);
 
+	printf( "timer-chart -- displays the number of seconds reported based on the f and o properties.\n" );
+	printf( "Prints out a table of calculated vs expected values.  table will include an 'X' in each cell that has an error.\n\n");
+	printf( "t = timer ticks (milliseconds)\n");
+	printf( "f-/f+ = --full-time not specified/specified\n" );
+	printf( "o-/o+ = --offset-time not specified/specified\n\n" );
+
 	printf( "   t |  %s  |  %s  |  %s  |  %s \n", lbls[0], lbls[1], lbls[2], lbls[3] );
 	int err = 0;
 	for (int i=0;i<test_count;i++)

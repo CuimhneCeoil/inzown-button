@@ -41,7 +41,7 @@ inzown-btn: inzown-btn.c
 	$(CC) inzown-btn.c -o inzown-btn 
 	#$(STRIP) inzown-btn
 
-test: test.c
+timer-chart: timer-chart.c
 	$(CC) test.c -o test
 	$(STRIP) test
 	
@@ -67,7 +67,7 @@ test: test.c
 #	@systemctl start inzown-btn > /dev/null 2>&1
 
 clean:
-	rm -f inzown-btn *.o inzown-btn.deb
+	rm -f inzown-btn timer-chart
 
 #inzown-btn.deb: inzown-btn
 #	@gzip --best -n ./debian/usr/share/doc/inzown-btn/changelog ./debian/usr/share/doc/inzown-btn/changelog.Debian ./debian/usr/share/man/man1/inzown-btn.1
