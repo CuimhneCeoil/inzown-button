@@ -1,10 +1,7 @@
-USRDIR=/usr
-ETCDIR=/etc
-INZOWN_DIR=/etc/inzown/button/
 
 case "$1" in
     configure)
-		ln -sf ${INZOWN_DIR}/inzown_button.service /usr/lib/systemd/system
+		ln -sf /etc/inzown/button/inzown_button.service /usr/lib/systemd/system
 		systemctl daemon-reload
     ;;
 
