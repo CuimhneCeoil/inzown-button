@@ -1,8 +1,13 @@
+Source: inzown-btn
+Priority: extra
+Rules-Requires-Root: no
+Maintainer: Claude Warren <claude@cuimhneceoil.ie>
+Standards-Version: 4.4.1
+Homepage: https://github.com/CuimhneCeoil/
+
 Package: inzown-btn
-Version: 1.15-2
-Priority: optional
-Architecture: any
+Architecture: all
+Pre-Depends: dpkg (>= 1.16.1), python3 (>= 3.7), ${misc:Pre-Depends}
 Depends: libc6 (>= 2.19), libgcc1 (>= 1:4.9.2-10), python3 (>= 3.5), python3-urwid (>= 1.0), git (>= 1:2.1.4), libglib2.0-bin (>= 2.33.12), patchbox-wifi (>= 1.0.0)
-Maintainer: Cuimhne Ceoil <claude@cuimhneceoil.ie`>
 Description: Inzown Button daemon.
  See https://inzown.com for more information.
