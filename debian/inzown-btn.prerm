@@ -1,0 +1,5 @@
+
+systemctl stop inzown-btn
+systemctl disable inzown-btn
+
+#DEBHELPER#

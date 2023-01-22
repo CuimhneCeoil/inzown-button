@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ -e /etc/inzown/button/inzown-btn.conf ]; then
+	cp /etc/inzown/button/inzown-btn.conf /etc/inzown/button/inzown-btn.con.bak.`date +"%F.%T"`
+fi
+
+
+#DEBHELPER#

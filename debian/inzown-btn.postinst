@@ -1,0 +1,20 @@
+USRDIR=/usr
+ETCDIR=/etc
+INZOWN_DIR=/etc/inzown/button/
+
+case "$1" in
+    configure)
+		ln -sf ${INZOWN_DIR}/inzown_button.service /usr/lib/systemd/system
+		systemctl daemon-reload
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+
+    *)
+        echo "postinst called with unknown argument: $1" >&2
+        exit 1
+    ;;
+esac
+
+#DEBHELPER#
