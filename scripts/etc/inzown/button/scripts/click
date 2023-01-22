@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo CLICK Click count: %1

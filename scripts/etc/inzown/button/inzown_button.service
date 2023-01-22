@@ -1,0 +1,9 @@
+[Unit]
+Description=Inzown button daemon
+After=sound.target inzown_base_config.service
+
+[Service]
+ExecStart=/usr/bin/pisound-btn --conf /etc/inzown/button/inzown-btn.conf
+
+[Install]
+WantedBy=multi-user.target 

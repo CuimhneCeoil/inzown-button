@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo HOLD Click count: %1  Time held: %2
