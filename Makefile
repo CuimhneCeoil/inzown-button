@@ -53,8 +53,15 @@ install: all
 clean:
 	rm -f inzown-btn timer-chart
 
-PHONY := pkg
-pkg:
+debian/changelog:
+	EMAIL=claude@cuimhneceoil.ie gbp dch --ignore-branch -S -c --git-author
+
+PHONY += clean_pkg
+clean-pkg: clean
+	rm -f debian/changelog
+	
+PHONY += pkg
+pkg: clean-pkg debian/changelog
 	gbp buildpackage --git-debian-branch=main --git-ignore-new
 
 
