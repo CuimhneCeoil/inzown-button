@@ -1,6 +1,5 @@
 .project
 debian/files
-debian/changelog
 debian/*.substvars
 inzown-btn
 timer-chart
