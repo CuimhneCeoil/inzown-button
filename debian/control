@@ -8,6 +8,6 @@ Homepage: https://github.com/CuimhneCeoil/
 Package: inzown-btn
 Architecture: all
 Pre-Depends: dpkg (>= 1.16.1), python3 (>= 3.7), ${misc:Pre-Depends}
-Depends: libc6 (>= 2.19), libgcc1 (>= 1:4.9.2-10), python3 (>= 3.5), python3-urwid (>= 1.0), git (>= 1:2.1.4), libglib2.0-bin (>= 2.33.12), patchbox-wifi (>= 1.0.0)
+Depends: libc6 (>= 2.19), libgcc1 (>= 1:4.9.2-10), libglib2.0-bin (>= 2.33.12)
 Description: Inzown Button daemon.
  See https://inzown.com for more information.

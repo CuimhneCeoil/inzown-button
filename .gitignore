@@ -1,4 +1,6 @@
 .project
+debian/files
 debian/changelog
+debian/*.substvars
 inzown-btn
-test
+timer-chart

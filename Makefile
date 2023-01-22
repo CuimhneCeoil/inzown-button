@@ -33,41 +33,31 @@ CC=$(CROSS_COMPILE)gcc
 STRIP=$(CROSS_COMPILE)strip
 
 BINDIR ?= $(DESTDIR)/usr/bin
-ETCDIR ?= $(DESTDIR)/etc/inzown
+ETCDIR ?= $(DESTDIR)/etc/inzown/button
 
-all: inzown-btn
+all: inzown-btn timer-chart
 
 inzown-btn: inzown-btn.c
 	$(CC) inzown-btn.c -o inzown-btn 
 	#$(STRIP) inzown-btn
 
 timer-chart: timer-chart.c
-	$(CC) test.c -o test
-	$(STRIP) test
+	$(CC) timer-chart.c -o timer-chart
+	$(STRIP) timer-chart
 	
-#install: all 
-#	@if test -e /etc/init.d/inzown-btn; then \
-#		update-rc.d inzown-btn remove; \
-#		/etc/init.d/inzown-btn stop; \
-#	fi
-#	@killall -PIPE inzown-btn > /dev/null 2>&1 || true
-#	@systemctl stop inzown-btn > /dev/null 2>&1 || true
-#	@cp inzown-btn $(BINDIR)/
-#	@mkdir -p $(PATCHES_DIR)
-#	@chmod 777 $(PATCHES_DIR)
-#	@cp -p inzown-btn.service /usr/lib/systemd/system/
-#	@mkdir -p /usr/local/etc
-#	@cp -p inzown.conf /usr/local/etc/
-#	@if test -e /etc/inzown.conf || test -h /etc/inzown.conf; then \
-#		unlink /etc/inzown.conf || rm /etc/inzown.conf; \
-#	fi
-#	@ln -s /usr/local/etc/inzown.conf /etc/inzown.conf
-#	@systemctl daemon-reload > /dev/null 2>&1
-#	@systemctl enable inzown-btn > /dev/null 2>&1
-#	@systemctl start inzown-btn > /dev/null 2>&1
+install: all 
+	install -d $(BINDIR) $(ETCDIR)
+	install inzown-btn $(BINDIR)/inzown-btn
+	install timer-chart $(ETCDIR)/timer-chart
 
 clean:
 	rm -f inzown-btn timer-chart
+
+PHONY := pkg
+pkg:
+	gbp buildpackage --git-debian-branch=main --git-ignore-new
+
+
 
 #inzown-btn.deb: inzown-btn
 #	@gzip --best -n ./debian/usr/share/doc/inzown-btn/changelog ./debian/usr/share/doc/inzown-btn/changelog.Debian ./debian/usr/share/man/man1/inzown-btn.1
@@ -78,3 +68,5 @@ clean:
 #	@fakeroot dpkg --build debian
 #	@mv debian.deb inzown-btn.deb
 #	@gunzip `find . | grep gz` > /dev/null 2>&1
+
+.PHONY: $(PHONY)
