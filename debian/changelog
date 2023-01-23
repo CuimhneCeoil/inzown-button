@@ -1,13 +1,14 @@
-inzown-btn (1.0.0~5.gbp2c9273) UNRELEASED; urgency=medium
+inzown-btn (1.0.0~6.gbp1ce0fe) UNRELEASED; urgency=medium
 
-  ** SNAPSHOT build @2c92737a0b78c9c762dc834031345dd47a500a53 **
+  ** SNAPSHOT build @1ce0fe02a8e30296b53b896e977038cd8050ada1 **
 
   * UNRELEASED
   * Update changelog for 1.0.0~2.gbp270b94 release
   * Update changelog for 1.0.0~3.gbpf9697a release
   * Update changelog for 1.0.0~4.gbpd25084 release
+  * Update changelog for 1.0.0~5.gbp2c9273 release
 
- -- Claude Warren <claude@xenei.com>  Mon, 23 Jan 2023 19:15:10 +0000
+ -- Claude Warren <claude@xenei.com>  Mon, 23 Jan 2023 19:15:40 +0000
 
 inzown-btn (1.0.0~1.gbp689c73) unstable; urgency=medium
 
