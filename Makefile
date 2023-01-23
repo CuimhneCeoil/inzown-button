@@ -56,7 +56,7 @@ clean:
 PHONY += pkg
 pkg: clean
 	EMAIL=claude@cuimhneceoil.ie gbp dch --ignore-branch -S -c --git-author
-	gbp buildpackage --git-debian-branch=main --git-ignore-new
+	gbp buildpackage --git-debian-branch=main --git-ignore-new -Z gzip
 
 
 
