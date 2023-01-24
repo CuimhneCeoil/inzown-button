@@ -60,6 +60,6 @@ PHONY += pkg
 pkg: clean
 	EMAIL=claude@cuimhneceoil.ie gbp dch --ignore-branch -S -c --git-author
 	#fakeroot -u debuild -Zgzip
-	CROSS_COMPILE=$(CROSS_COMPILE) LDFLAGS=$(LDFLAGS)  dpkg-buildpackage -r"fakeroot -u" -aarm64 -i.git -us -uc
+	CROSS_COMPILE=$(CROSS_COMPILE) LDFLAGS=$(LDFLAGS)  dpkg-buildpackage -r"fakeroot -u" -aarm64 -i.git -us -uc -Zgzip
 
 .PHONY: $(PHONY)
