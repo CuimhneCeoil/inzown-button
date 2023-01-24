@@ -30,4 +30,7 @@ override_dh_shlibdeps:
 	install -d debian/inzown-btn/DEBIAN
 
 override_dh_dwz:
-	## do nothign
+	## do nothing
+
+override_dh_builddeb
+	dh_builddeb -- -Zgzip
