@@ -25,12 +25,15 @@ ARCH ?= arm64
 
 ifeq ($(ARCH),armhf)
 CROSS_COMPILE ?= /usr/bin/arm-linux-gnueabihf-
+LDFLAGS ?= -l/usr/arm-linux-gnueabihf/lib
 else ifeq ($(ARCH),arm64)
 CROSS_COMPILE ?= /usr/bin/aarch64-linux-gnu-
+LDFLAGS ?= -l/usr/aarch64-linux-gnu/lib
 endif
 
 CC=$(CROSS_COMPILE)gcc
 STRIP=$(CROSS_COMPILE)strip
+LD=$(CROSS_COMPILE)/ld
 
 BINDIR ?= $(DESTDIR)/usr/bin
 ETCDIR ?= $(DESTDIR)/etc/inzown/button
@@ -39,7 +42,7 @@ all: inzown-btn timer-chart
 
 inzown-btn: inzown-btn.c
 	$(CC) inzown-btn.c -o inzown-btn 
-	#$(STRIP) inzown-btn
+	$(STRIP) inzown-btn
 
 timer-chart: timer-chart.c
 	$(CC) timer-chart.c -o timer-chart
@@ -51,23 +54,12 @@ install: all
 	install timer-chart $(ETCDIR)/timer-chart
 
 clean:
-	rm -f inzown-btn timer-chart
+	rm -f inzown-btn timer-chart ../inzown-btn*
 	
 PHONY += pkg
 pkg: clean
 	EMAIL=claude@cuimhneceoil.ie gbp dch --ignore-branch -S -c --git-author
-	gbp buildpackage --git-debian-branch=main --git-ignore-new -Z gzip
-
-
-
-#inzown-btn.deb: inzown-btn
-#	@gzip --best -n ./debian/usr/share/doc/inzown-btn/changelog ./debian/usr/share/doc/inzown-btn/changelog.Debian ./debian/usr/share/man/man1/inzown-btn.1
-#	@mkdir -p debian/usr/bin
-#	@cp inzown-btn debian/usr/bin/
-#	@mkdir -p debian/usr/local/etc
-#	@cp inzown.conf debian/usr/local/etc/
-#	@fakeroot dpkg --build debian
-#	@mv debian.deb inzown-btn.deb
-#	@gunzip `find . | grep gz` > /dev/null 2>&1
+	#fakeroot -u debuild -Zgzip
+	CROSS_COMPILE=$(CROSS_COMPILE) LDFLAGS=$(LDFLAGS)  dpkg-buildpackage -r"fakeroot -u" -aarm64 -i.git -us -uc
 
 .PHONY: $(PHONY)

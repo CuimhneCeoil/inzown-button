@@ -1,13 +1,14 @@
 Source: inzown-btn
+Section: electronics
 Priority: extra
+Maintainer: Claude N. Warren, Jr. <claude@cuimhneceoil.ie>
 Rules-Requires-Root: no
-Maintainer: Claude Warren <claude@cuimhneceoil.ie>
 Standards-Version: 4.4.1
 Homepage: https://github.com/CuimhneCeoil/
 
 Package: inzown-btn
-Architecture: all
-Pre-Depends: dpkg (>= 1.16.1), python3 (>= 3.7), ${misc:Pre-Depends}
-Depends: libc6 (>= 2.19), libgcc1 (>= 1:4.9.2-10), libglib2.0-bin (>= 2.33.12)
+Architecture: any
+Pre-Depends: dpkg (>= 1.16.1), ${misc:Pre-Depends}
+Depends: libc6 
 Description: Inzown Button daemon.
  See https://inzown.com for more information.
