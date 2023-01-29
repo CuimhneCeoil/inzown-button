@@ -41,11 +41,11 @@ ETCDIR ?= $(DESTDIR)/etc/inzown/button
 all: inzown-btn timer-chart
 
 inzown-btn: inzown-btn.c
-	$(CC) inzown-btn.c -o inzown-btn 
+	$(CC) inzown-btn.c -o inzown-btn --static
 	$(STRIP) inzown-btn
 
 timer-chart: timer-chart.c
-	$(CC) timer-chart.c -o timer-chart
+	$(CC) timer-chart.c -o timer-chart --static
 	$(STRIP) timer-chart
 	
 install: all 
